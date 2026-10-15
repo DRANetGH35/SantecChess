@@ -20,5 +20,5 @@ def get_ip():
 
 
 if __name__ == '__main__':
-    app.run(debug=True, port=5002, host=get_ip())
+    app.run(debug=True, port=5000, host='santec-chess.com')
     #                              host='192.168.86.53'
