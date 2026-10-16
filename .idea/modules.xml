@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/Flask_Site_Boilerplate.iml" filepath="$PROJECT_DIR$/.idea/Flask_Site_Boilerplate.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/SantecChess.iml" filepath="$PROJECT_DIR$/.idea/SantecChess.iml" />
     </modules>
   </component>
 </project>
