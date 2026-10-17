@@ -3,8 +3,8 @@
 <html lang="en" data-bs-theme="dark">
 
     <head>
-        <title>DRADigital</title>
-        <link rel="icon" type="image/x-icon" href="static/images/favicon.ico">
+        <title>Santec Chess</title>
+        <link rel="icon" type="image/x-icon" href="static/img/favicon.ico">
         <meta charset="UTF-8">
         <title>Title</title>
 
@@ -32,6 +32,33 @@
       --red: #ab0300;
       --red-hover: #d40602;
       --radius: 10px;
+    }
+    .title{
+         color: var(--accent-2);
+          font-weight: 700;
+          font-size: 1.1rem;
+    }
+    .title .chess{
+        color: white;
+        margin-left: none;
+        padding-left: none;
+    }
+    .title .chess:hover{
+        color: var(--muted);
+    }
+    .custom-row{
+        display:flex;
+        flex-direction:column;
+        align-items: center;
+    }
+    .logo-img{
+        max-width: 15%;
+        margin:20px;
+    }
+    .inline-icon{
+        height: 2rem;
+        vertical-align: middle; /* Aligns the icon nicely with text */
+        margin-right: none;
     }
     .img{
         max-width:100%;
@@ -155,9 +182,10 @@
     }
     .section-head {
       display: flex;
-      align-items: baseline;
-      gap: 0.75rem;
-      margin-bottom: 1.5rem;
+        flex-direction:column;
+        align-items: center;
+        gap: 0.75rem;
+        margin-bottom: 1.5rem;
     }
     .section-head h2 {
       font-size: 1.15rem;

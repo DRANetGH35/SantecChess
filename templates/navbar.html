@@ -1,6 +1,6 @@
 {% block content %}
    <header>
-      <a href="/" class="logo">Santec<span>Chess</span></a>
+      <div><a href="/" class="title"><img class="inline-icon" src="/static/img/rook.png">Santec<span class="chess">Chess</span></a></div>
       <nav class="top-links">
         {% if current_user.is_authenticated %}
             {% if not current_user.verified %}

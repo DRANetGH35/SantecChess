@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="DRADigital — Full-stack Python developer. Flask, data systems, production infrastructure." />
-  <title>DRADigital</title>
+  <meta name="description" content="Santec Chess Club website" />
+  <title>Santec Chess</title>
 
 
 
@@ -18,22 +18,26 @@
     {% include 'navbar.html' %}
 
     <div class="section">
-        <h1>Santec Chess Club</h1>
-        <p>Come play with us!</p>
-        <img class="img" src="/static/img/table.jpg">
+        <div class="custom-row">
+            <h1>Santec Chess Club</h1>
+            <img class="logo-img" src="/static/img/rook_cropped.png">
+        </div>
+    <div class="section">
+    <img class="img" src="/static/img/table.jpg">
+    </div>
     </div>
     <div class="section">
-        <h3>Who?</h3>
-        <p>Anyone is welcome to play, just bring an opponent! also it doesn't matter if you've never played, find Robert or Devan if you want some instruction.</p>
+        <h3 class="section-head">Who?</h3>
+        <p>Anyone is welcome to play, just bring an opponent! It doesn't matter if you've never played, find Robert or Devan if you want some instruction.</p>
         <p>There is a rulebook on our game table as well <a class="btn btn-link" href="https://www.chess.com/learn-how-to-play-chess">(or you can read the rules here)</a></p>
         <p>If you don't have time to finish your game, it's recommended to take a picture of the board, so others can use it while you're away. Then you can resume your game later.</p>
     </div>
     <div class="section">
-        <h3>Where?</h3>
+        <h3 class="section-head">Where?</h3>
         <p>Downstairs in the warehouse behind the break room. You've definitely passed it before.</p>
     </div>
     <div class="section">
-        <h3>When?</h3>
+        <h3 class="section-head">When?</h3>
         <p>We usually play on our breaks (8:15am, 11:00am and 1:15pm) but as long as you find a time with your opponent it doesn't matter.</p>
     </div>
     {% include 'footer.html' %}
