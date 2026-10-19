@@ -65,7 +65,7 @@ def verify():
         if verification_code == current_user.verification_code:
             current_user.verified = True
             db.session.commit()
-            return render_template('index.html', current_user=current_user)
+            return redirect(url_for('index'))
         error = "incorrect code"
         return render_template('account/verify.html', error=error)
     return render_template('account/verify.html')
