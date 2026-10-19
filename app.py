@@ -15,7 +15,7 @@ def create_app():
     app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database.db'
     app.config['PERMANENT_SESSION_LIFETIME'] = timedelta(minutes=30)  # Time the user out after 30 minutes
     #TODO: CHANGE FOLLOWING LINE
-    app.config['SERVER_NAME'] = '###.dradigital.net'
+    app.config['SERVER_NAME'] = 'santec-chess.com'
     app.config['PREFERRED_URL_SCHEME'] = 'https'
     app.config['APPLICATION_ROOT'] = '/'
     app.config['SESSION_COOKIE_SECURE'] = True
