@@ -5,7 +5,7 @@ from werkzeug.security import check_password_hash
 from extensions import db
 
 class User(UserMixin, db.Model):
-    __tablename__ = 'user'
+    __tablename__ = 'users'
 
     id: Mapped[int] = mapped_column(Integer, primary_key=True)
     password: Mapped[str] = mapped_column(String(100))
