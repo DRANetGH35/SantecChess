@@ -1,3 +1,5 @@
+from threading import currentThread
+
 from flask import render_template, request, redirect, url_for, flash
 from flask_login import current_user, login_user, logout_user, login_required
 import os, random
@@ -67,7 +69,15 @@ def verify():
         error = "incorrect code"
         return render_template('account/verify.html', error=error)
     return render_template('account/verify.html')
-
+@login_required
+@app.route('/new_verification_code')
+def new_verification_code():
+    verification_code = f"{random.randint(0, 99999):05}"
+    email = current_user.email
+    current_user.verification_code = verification_code
+    db.session.commit()
+    send_verification_email(verification_code, email)
+    return render_template('account/verify.html', error='New verification code sent')
 @app.route('/forgot_password', methods=["GET", "POST"])
 def forgot_password():
     if request.method == "POST":
