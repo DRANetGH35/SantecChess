@@ -103,7 +103,7 @@ def reset_password(token):
 
         user.password = generate_password_hash(new_password, method='pbkdf2:sha256', salt_length=8)
         db.session.commit()
-        return redirect(url_for('index'))
+        return redirect(url_for('login'))
     return render_template('account/reset_password.html', token=token)
 
 @app.route('/logout')
