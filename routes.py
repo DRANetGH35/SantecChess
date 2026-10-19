@@ -59,15 +59,14 @@ def register():
 @app.route('/verify', methods=['GET', 'POST'])
 def verify():
     if request.method == 'POST':
-        verification_code = str(request.form.get('verification_code'))
-        if request.form.get("verification_code") == current_user.verification_code:
+        verification_code = int(request.form.get('verification_code'))
+        if verification_code == current_user.verification_code:
             current_user.verified = True
             db.session.commit()
-
             return render_template('index.html', current_user=current_user)
         error = "incorrect code"
-        return redirect(url_for('account/verify.html', error=error))
-    return render_template('verify.html')
+        return render_template('account/verify.html', error=error)
+    return render_template('account/verify.html')
 
 @app.route('/forgot_password', methods=["GET", "POST"])
 def forgot_password():
