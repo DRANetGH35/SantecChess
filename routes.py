@@ -88,7 +88,8 @@ def forgot_password():
             reset_url = url_for('reset_password', token=token, _external=True)
             send_reset_link(reset_url, email)
             print(reset_url)
-        flash('If that account exists, instructions will be sent to your email')
+        flash("If that account exists, instructions will be sent to your email")
+        flash("(It's definitely in your spam folder)")
     return render_template('account/forgot_password.html')
 
 @app.route('/reset_password/<token>', methods=['GET', 'POST'])
