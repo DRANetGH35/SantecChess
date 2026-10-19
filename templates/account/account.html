@@ -1,0 +1,14 @@
+{% extends "base.html" %} {% block content %}
+<div class="shell">
+{% include 'navbar.html' %}
+    <section>
+    <h3> - {{ current_user.name }} - </h3>
+    {% if not current_user.verified %}
+        <a href="/verify" class="btn btn-link">Verify your account</a>
+    {% endif %}
+    </section>
+    {% include 'footer.html' %}
+    </div>
+
+
+{% endblock %}

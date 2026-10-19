@@ -112,6 +112,10 @@ def logout():
     logout_user()
     return redirect(url_for('index'))
 
+@login_required
+@app.route('/account')
+def account():
+    return render_template('/account/account.html')
 @app.errorhandler(404)
 def page_not_found(e):
     return render_template("error/404.html")
