@@ -1,16 +1,19 @@
 {% block content %}
    <header>
-      <div><a href="/" class="title"><img class="inline-icon" src="/static/img/rook.png">Santec<span class="chess">Chess</span></a></div>
-      <nav class="top-links">
+
+      <nav class="navbar">
+          <div class="header-left"><a href="/" class="title"><img class="inline-icon" src="/static/img/rook.png"><span class="Santec">Santec</span><span class="chess">Chess</span></a></div>
+          <div class="header-right">
         {% if current_user.is_authenticated %}
             {% if not current_user.verified %}
                 <a href="/verify">Verify</a>
             {% endif %}
-        <a href="/logout">Logout</a>
-        <a href="/account">Account</a>
+        <a class="navbar-item" href="/logout">Logout</a>
+        <a class="navbar-item" href="/account">Account</a>
         {% else %}
-        <a href="/login">Login</a>
+        <a class="navbar-item" href="/login">Login</a>
         {% endif %}
+          </div>
       </nav>
     </header>
 {% endblock %}
