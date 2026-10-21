@@ -6,7 +6,7 @@
           <div class="header-right">
         {% if current_user.is_authenticated %}
             {% if not current_user.verified %}
-                <a href="/verify">Verify</a>
+                <a class="navbar-item" href="/verify">Verify</a>
             {% endif %}
         <a class="navbar-item" href="/logout">Logout</a>
         <a class="navbar-item" href="/account">Account</a>

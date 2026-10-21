@@ -11,6 +11,7 @@ from models import User
 from app import create_app
 from werkzeug.security import check_password_hash, generate_password_hash
 from tokens import generate_reset_token, verify_reset_token
+import smtplib
 
 app = create_app()
 
@@ -50,10 +51,17 @@ def register():
         elif User.exists(username):
             error = 'account with this username already exists'
         else:
-            send_verification_email(verification_code, email)
-            db.session.add(User(name=username, password=generate_password_hash(entered_password, method="pbkdf2:sha256", salt_length=8), is_admin=False, email=email, verification_code=verification_code, verified=False))
+            try:
+                send_verification_email(verification_code, email)
+            except (smtplib.SMTPResponseException, TimeoutError) as e:
+                error = """Your account was created, but we ran into a problem sending a verification email :(\n\n Please contact devan for your validation code"""
+            new_user = User(name=username, password=generate_password_hash(entered_password, method="pbkdf2:sha256", salt_length=8), is_admin=False, email=email, verification_code=verification_code, verified=False)
+            db.session.add(new_user)
             db.session.commit()
-        return render_template('account/register.html', error=error)
+            login_user(new_user)
+            print(new_user)
+            print(current_user)
+        return redirect(url_for('verify', error=error))
     else: # request method GET
         return render_template('account/register.html')
 
@@ -68,6 +76,8 @@ def verify():
             return redirect(url_for('index'))
         error = "incorrect code"
         return render_template('account/verify.html', error=error)
+    if request.args.get('error'):
+        return render_template('account/verify.html', error=request.args.get('error'))
     return render_template('account/verify.html')
 @login_required
 @app.route('/new_verification_code')
@@ -76,7 +86,10 @@ def new_verification_code():
     email = current_user.email
     current_user.verification_code = verification_code
     db.session.commit()
-    send_verification_email(verification_code, email)
+    try:
+        send_verification_email(verification_code, email)
+    except (smtplib.SMTPResponseException, TimeoutError) as e:
+        return render_template('account/verify.html', error="We had a problem sending you a verification code :( Tell devan to fix his email service")
     return render_template('account/verify.html', error='New verification code sent')
 @app.route('/forgot_password', methods=["GET", "POST"])
 def forgot_password():
