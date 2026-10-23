@@ -105,6 +105,13 @@ def forgot_password():
         flash("(It's definitely in your spam folder)")
     return render_template('account/forgot_password.html')
 
+@app.route('/halloween', methods=["GET", "POST"])
+def halloweenRSVP():
+    if request.method == "POST":
+        text = request.form.get('text')
+        return render_template('seeyouthen.html')
+    return render_template('halloween.html')
+
 @app.route('/reset_password/<token>', methods=['GET', 'POST'])
 def reset_password(token):
     email = verify_reset_token(token)

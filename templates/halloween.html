@@ -1,0 +1,45 @@
+{% extends "base.html" %} {% block content %}
+<style>
+    .small-section{
+        text-align:center;
+    }
+    img{
+        max-width: 15%;
+        margin: 15px;
+    }
+</style>
+<div class="shell">
+  {% include 'navbar.html' %}
+  <div class="section">
+  <h1 style="justify-self:center;"> Halloween Chess Tournament</h1>
+      <div class="small-section">
+          <img src="/static/img/team.png">
+      <h3>The Teams</h3>
+          <p>Engineering and Manufacturing teams face off to win the tournament.</p>
+          <p>Each player who wins a game against a player in the opposing team scores a point for their own.</p>
+          <p>We'll tally the points at 5pm to see who wins</p>
+      </div>
+      <div class="small-section">
+          <img src="/static/img/rook.png">
+      <h3>The Games</h3>
+          <p>There will be enough boards for plenty of competitors to play simultaneously.</p>
+          <p>Play with a timer, or without, whatever you perfer.</p>
+      </div>
+      <div class="small-section">
+          <img src="/static/img/snack.png">
+      <h3>The Snacks</h3>
+          <p>Devan will be providing snacks</p>
+          <p>Please bring your own too if youd like to share</p>
+      </div>
+      <div class="small-section">
+          <img src="/static/img/ghost.png">
+      <h5>and..</h5>
+      <h3>The Fits</h3>
+          <p>It's halloween, wear a costume!</p>
+      </div>
+  </div>
+
+  {% include 'footer.html' %}
+</div>
+
+{% endblock %}
