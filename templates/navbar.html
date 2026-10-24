@@ -2,7 +2,13 @@
    <header>
 
       <nav class="navbar">
-          <div class="header-left"><a href="/" class="title"><img class="inline-icon" src="/static/img/rook.png"><span class="Santec">Santec</span><span class="chess">Chess</span></a></div>
+          <div class="header-left">
+              <a href="/" class="title">
+                  <img class="inline-icon" src="/static/img/rook.png">
+                  <span class="Santec">Santec</span>
+                  <span class="chess">Chess</span>
+              </a>
+          </div>
           <div class="header-right">
         {% if current_user.is_authenticated %}
             {% if not current_user.verified %}
